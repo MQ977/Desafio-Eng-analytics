@@ -6,16 +6,21 @@ sources:
     database: FEA24_11
     schema: RAW_ADVENTURE_WORKS
     tables:
-      - name: ADDRESS
-        description: "Tabela de endereços dos clientes."
+      - name: SALESORDERHEADER
+        description: "Pedido de venda."
         columns:
-          - name: ADDRESS_ID
-            description: "Identificador único do endereço."
-          - name: ADDRESS_LINE1
-            description: "Endereço principal."
-          - name: CITY
-            description: "Cidade do endereço."
-          - name: STATE_PROVINCE
-            description: "Estado ou província."
-          - name: POSTAL_CODE
-            description: "Código postal."
+          - name: SALESORDERID
+            description: "Número do pedido."
+            tests:
+              - unique
+              - not_null
+      - name: orderdate
+        description: "Data do pedido"
+        tests:
+          - unique
+          - not_null
+      - name: customerid
+        description: "ID do cliente"
+        tests:
+          - unique
+          - not_null
