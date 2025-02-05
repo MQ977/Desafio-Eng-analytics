@@ -4,7 +4,7 @@ sources:
   - name: erp_northwind
     description: "Essa é a fonte do sistema ERP da northwind."
     database: FEA24_11
-    schema: raw_northwind
+    schema: RAW_ADVENTURE_WORKS
     tables:
       - name: ADDRESS
         description: "Tabela de endereços dos clientes."
