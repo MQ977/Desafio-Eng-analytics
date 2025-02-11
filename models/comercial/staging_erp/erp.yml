@@ -24,3 +24,56 @@ sources:
         tests:
           - unique
           - not_null
+      - name: SALESORDERDETAIL
+        description: "Detalhes de cada pedido"
+        columns: 
+          - name: salesorderid        
+            description: "Id do pedido"
+            tests:
+              - unique
+              - not_null
+          - name: salesorderdetailid        
+            description: "Id do pedido de venda"
+            tests:
+              - unique
+              - not_null
+          - name: carriertrackingnumber        
+            description: "Codigo de rastreamento"
+            tests:
+              - unique
+              - not_null   
+          - name: orderqty       
+            description: "Quantidade de intens que foram vendidos"
+            tests:
+              - unique
+              - not_null
+          - name: productid        
+            description: "Id do produto vendido"
+            tests:
+              - unique
+              - not_null
+          - name: specialofferid        
+            description: "Oferta especial"
+            tests:
+              - unique
+              - not_null
+          - name: unitprice       
+            description: "Preço unitário do produto"
+            tests:
+              - unique
+              - not_null
+          - name: unitpricediscount       
+            description: "Desconto"
+            tests:
+              - unique
+              - not_null
+          - name: rowguid       
+            description: "Guia"
+            tests:
+              - unique
+              - not_null
+          - name: modifieddate       
+            description: "Data de modificacao"
+            tests:
+              - unique
+              - not_null
