@@ -77,3 +77,57 @@ sources:
             tests:
               - unique
               - not_null
+      - name: PRODUCT
+        description: "Tabela com dados dos produtos"
+        columns:
+          - name: productid
+            description: "Número do pedido."
+            tests:
+              - unique
+              - not_null
+          - name: name      
+            description: "Nome"
+            tests:
+              - unique
+              - not_null
+          - name: productsubcategoryid    
+            description: "Id de subcategoria do produto" 
+            tests:
+              - unique
+              - not_null
+      - name: CUSTOMER
+        description: "Tabela com daods de clientes"
+        columns:
+          - name: customerid
+            description: "Número do cliente"
+            tests:
+              - unique
+              - not_null
+          - name: personid     
+            description: "Id da pessoa"
+            tests:
+              - unique
+              - not_null
+          - name: storeid    
+            description: "Id da loja" 
+            tests:
+              - unique
+              - not_null
+          - name: territoryid    
+            description: "Id do território" 
+            tests:
+              - unique
+              - not_null
+      - name: SALESPERSON
+        description: "Tebela relacionada a vendas e pessoas"
+        columns:
+          - name: businessentityid
+            description: "Id vendedor."
+            tests:
+              - unique
+              - not_null
+      - name: territoryid
+        description: "Id do território"
+        tests:
+          - unique
+          - not_null

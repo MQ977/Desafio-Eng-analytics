@@ -12,5 +12,4 @@ SALESORDERHEADER as (
     from {{ source('erp_northwind','SALESORDERHEADER') }}
 )
 
-select * 
-from SALESORDERHEADER
+select * from SALESORDERHEADER
