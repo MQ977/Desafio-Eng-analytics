@@ -131,3 +131,98 @@ sources:
         tests:
           - unique
           - not_null
+      - name: ADDRESS
+        description: "Tebela relacionada aos enderecos"
+        columns:
+          - name: addressid
+            description: "Codluna de endereco."
+            tests:
+              - unique
+              - not_null
+          - name: ADDRESSLINE1
+            description: "Descricao do endereco."
+            tests:
+              - unique
+              - not_null      
+      - name: city
+        description: "Coluna de cidades."
+        tests:
+          - unique
+          - not_null
+      - name: stateprovinceid
+        description: "Numero da provincia."
+        tests:
+          - unique
+          - not_null
+      - name: STATEPROVINCE
+        description: "Tebela relacionada aos estados"
+        columns:
+          - name: stateprovinceid
+            description: "Coluna de Id do estado"
+            tests:
+              - unique
+              - not_null
+          - name: name
+            description: "Coluna de sigla do estado."
+            tests:
+              - unique
+              - not_null      
+      - name: countryregioncode
+        description: "Coluna de pais que pertece o estado."
+        tests:
+          - unique
+          - not_null
+      - name: COUNTRYREGION
+        description: "Tabela de paises e siglas"
+        columns:
+          - name: countryregioncode 
+            description: "Sigla dos paises"
+            tests:
+              - unique
+              - not_null
+          - name: name
+            description: "Coluna de nomes dos paises."
+            tests:
+              - unique
+              - not_null
+      - name: SALESREASON
+        description: "Tabela com os motivos de vendas"
+        columns:
+          - name: salesreasonid
+            description: "Coluna de numero da venda"
+            tests:
+              - unique
+              - not_null
+          - name: name
+            description: "Coluna de motivo da venda."
+            tests:
+              - unique
+              - not_null
+              - name: reasontype
+            description: "Coluna de outro motivo da venda."
+            tests:
+              - unique
+              - not_null
+      - name: CREDITCARD
+        description: "Tabela com os tipos de cartao"
+        columns:
+          - name: creditcardid
+            description: "Coluna com id do cartao"
+            tests:
+              - unique
+              - not_null
+          - name: cardtype
+            description: "Coluna com tipo de cartao."
+            tests:
+              - unique
+              - not_null
+              - name: expmonth
+            description: "Coluna com expmes."
+            tests:
+              - unique
+              - not_null
+              - name: expyear
+            description: "Coluna com expano."
+            tests:
+              - unique
+              - not_null
