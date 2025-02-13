@@ -19,8 +19,43 @@ sources:
         tests:
           - unique
           - not_null
+      - name: subtotal
+        description: "Coluna subtotal"
+        tests:
+          - unique
+          - not_null
+      - name: taxamt
+        description: "Coluna das taxas"
+        tests:
+          - unique
+          - not_null
+      - name: freight
+        description: "Coluna dos fretes"
+        tests:
+          - unique
+          - not_null
+      - name: totaldue
+        description: "Coluna dos valores total"
+        tests:
+          - unique
+          - not_null
       - name: customerid
         description: "ID do cliente"
+        tests:
+          - unique
+          - not_null
+      - name: salespersonid
+        description: "Coluna vendedor"
+        tests:
+          - unique
+          - not_null
+      - name: creditcardid
+        description: "Coluna id cartao"
+        tests:
+          - unique
+          - not_null
+      - name: SHIPTOADDRESSID
+        description: "Coluna endereco"
         tests:
           - unique
           - not_null
@@ -223,6 +258,19 @@ sources:
               - not_null
               - name: expyear
             description: "Coluna com expano."
+            tests:
+              - unique
+              - not_null
+      - name: SALESORDERHEADERSALESREASON
+        description: "Tabela de relacao entre vendas"
+        columns:
+          - name: SALESORDERID
+            description: "Coluna com id"
+            tests:
+              - unique
+              - not_null
+          - name: SALESREASONID
+            description: "Coluna com id secundario"
             tests:
               - unique
               - not_null

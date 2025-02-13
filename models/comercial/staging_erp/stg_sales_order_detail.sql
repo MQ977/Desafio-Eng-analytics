@@ -10,7 +10,7 @@ with SALESORDERDETAIL as (
     , cast(unitpricediscount as int) as desconto
     , cast(rowguid as varchar) as guia
     , cast(TO_DATE(modifieddate) as date) as dt_modificacao
-
+    , (unitprice * orderqty * (1 - coalesce(unitpricediscount, 0))) as valor_liq
     from {{source('erp_northwind','SALESORDERDETAIL')}}
     
 )
