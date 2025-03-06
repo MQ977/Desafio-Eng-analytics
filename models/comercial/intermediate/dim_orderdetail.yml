@@ -1,0 +1,117 @@
+version: 2
+
+models:
+  - name: dim_orderdetail
+    description: "Dimensão relacionada aos dados de clientes, produtos, valores e quantidade."
+    columns:
+      - name: fk_pedido
+        description: "Representa a chave para relacionar os pedidos."
+        tests:
+          - unique
+          - not_null
+
+      - name: fk_cliente
+        description: "Representa a chave para relacionar os clientes."
+        tests:
+          - unique
+          - not_null
+
+      - name: pk_produto
+        description: "Representa a chave primária para utilizada para trazer o nome do produto."
+        tests:
+          - not_null
+
+      - name: nome_do_produto
+        description: "Representa o nome de cada produto."
+        tests:
+          - not_null
+       
+      - name: fk_cartao
+        description: "Representa a chave com o nome de cada cartao."
+        tests:
+          - not_null
+      
+      - name: dt_pedido
+        description: "Representa a data em que foi aprovado o pedido."
+        tests:
+          - not_null
+
+      - name: fk_vendedor
+        description: "Representa os vendedores que estão relacionados."
+        tests:
+          - not_null
+
+      - name: cod_produto
+        description: "Representa o modelo do produto comprado."
+        tests:
+          - not_null    
+      
+      - name: preco_unitario
+        description: "Representa o preço unitario de cada produto comprado."
+        tests:
+          - not_null  
+
+      - name: desc_categoria
+        description: "Representa a categoria a qual determinado produto pertence."
+        tests:
+          - not_null   
+
+      - name: desc_subcategoria
+        description: "Representa o complemento da categoria do produto comprado."
+        tests:
+          - not_null 
+      
+      - name: quantidade_do_pedido
+        description: "Representa a quantidad de produto comprado."
+        tests:
+          - not_null
+      
+      - name: valor_total_negociado
+        description: "Representa o valor toral do pedido."
+        tests:
+          - not_null 
+
+      - name: valor_total
+        description: "Representa o valor somente do produto."
+        tests:
+          - not_null
+      
+      - name: status
+        description: "Representa o status do pedido de compra."
+        tests:
+          - not_null
+
+      - name: descricao_oferta
+        description: "Representa a oferta que há sobre o produto."
+        tests:
+          - not_null
+      
+      - name: tipo_de_desconto
+        description: "Representa a classificação de desconto."
+        tests:
+          - not_null
+      
+      - name: quantidade_minima
+        description: "Representa a quantidade minima para se aplicar sobre o produto."
+        tests:
+          - not_null
+      
+      - name: ticket_medio
+        description: "Representa a media de valores dos produtos."
+        tests:
+          - not_null
+      
+      - name: frete_ratiado
+        description: "Representa o valor do frete diluido."
+        tests:
+          - not_null
+      
+      - name: imposto_rateado
+        description: "Representa o valor do imposto diluido."
+        tests:
+          - not_null
+      
+      - name: total_bruto
+        description: "Representa o valor total bruto sobre o produto."
+        tests:
+          - not_null 

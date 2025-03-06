@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: dim_customer
+    description: "Dimensão relacionada aos dados dos clientes."
+    columns:
+      - name: pk_cliente
+        description: "Representa a chave primaria para buscar o cliente."
+        tests:
+          - unique
+          - not_null
+
+      - name: nome_cliente
+        description: "Representa a chave utilizada para relacionar o nome do cliente."
+        tests:
+          - not_null
+
+      - name: pk_loja
+        description: "Representa chave primaria para relacionar com a loja que foi efetuada a compra."
+        tests:
+          - not_null
+      
+      - name: pk_nome_loja
+        description: "Representa chave primaria para relacionar com o nome da loja."
+        tests:
+          - not_null
+     
+      - name: regiao
+        description: "Coluna para relacionar com a regiao da loja."
+        tests:
+          - not_null
+      
+      - name: id_endereco
+        description: "Coluna para relacioar os ids de cada endereço."
+        tests:
+          - not_null

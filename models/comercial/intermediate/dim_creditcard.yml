@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: dim_creditcard
+    description: "Dimensão relacionada aos dados de cartão de crédito e o titular."
+    columns:
+      - name: pk_cartao
+        description: "Representa a chave primaria para buscar o cartão utilizado."
+        tests:
+          - unique
+          - not_null
+
+      - name: tipo_cartao
+        description: "Representa a chave utilizada para trazer o nome do cartão utilizado."
+        tests:
+          - not_null
+
+      - name: titular_cartao
+        description: "Representa os clientes que usaram o cartão."
+        tests:
+          - not_null
+
+     

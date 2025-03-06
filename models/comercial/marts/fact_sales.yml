@@ -1,0 +1,89 @@
+version: 2
+models:
+  - name: fact_sales
+    description: >
+      Tabela de dados relacionados a vendas, produtos, clientes, cartões de crédito, locais, motivos e datas.
+    columns:
+      - name: fk_pedido
+        description: Chave primária da tabela.
+        tests:
+          - unique
+          - not_null
+
+      - name: fk_cliente
+        description: "Chave estrangeira referenciando id do cliente."
+
+      - name: fk_produto
+        description: "Chave estrangeira referenciando o id do produto desejado."
+
+      - name: nome_do_produto
+        description: "Chave estrangeira referenciando o nome do produto."
+
+      - name: desc_categoria
+        description: "Chave estrangeira referenciando a categoria que o produto se enquadra."
+
+      - name: desc_subcategoria
+        description: "Chave estrangeira referenciando a subcategoria do produto."
+
+      - name: fk_cartao
+        description: "Chave estrangeira referenciando a chave do cartão utilizado."
+
+      - name: quantidade_do_pedido
+        description: "Chave referenciando a quantidade de itens comprados."
+
+      - name: preco_unitario
+        description: "Chave que faz referencia ao preço unitário do produto."
+
+      - name: ticket_medio
+        description: "Chave referenciando o valor em media do produto."      
+
+      - name: frete_rateado
+        description: "Chave contendo o frete do produto diluido."
+
+      - name: imposto_rateado
+        description: "Chave a qual traz o imposto do produto diluido."
+
+      - name: total_bruto
+        description: "Valor total agregado no produto."
+
+      - name: data_do_pedido
+        description: "Traz a data que foi feito o pedido."
+
+      - name: vendedor
+        description: "Coluna que traz o nome do vendedor se houver."
+
+      - name: pk_cliente
+        description: "Chave para identificar o cliente."
+
+      - name: fk_nome_loja
+        description: "Traz o nome da loja onde foi comprado o produto."
+
+      - name: regiao_do_cliente
+        description: "Região onde foi realizado a transação."
+
+      - name: nome_vendedor
+        description: "Traz o nome do vendedor."
+
+      - name: tipo_cartao
+        description: "Cartao utilizado na compra."
+
+      - name: titular_cartao
+        description: "Traz o responsavel pela compra."
+
+      - name: motivo_da_venda
+        description: "Coluna que diz respeito ao motivo pelo qual produto foi comprado."
+
+      - name: motivo_complementar
+        description: "Coluna com complemento do motivo de compra."
+
+      - name: cidade
+        description: "Coluna a qual traz a cidade a qual foi realizada a operação."
+      
+      - name: estado
+        description: "Coluna a qual traz o estado o qual foi realizada a operação."
+      
+      - name: pais
+        description: "Coluna a qual traz o páis onde foi realizada a operação."
+      
+      - name: status
+        description: "Coluna com aprovação do pedido."

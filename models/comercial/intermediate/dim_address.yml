@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: dim_address
+    description: "Dimensão relacionada a cidade, estado e pais"
+    columns:
+      - name: pk_endereco
+        description: "Representa a chave primaria para buscar o endereço."
+        tests:
+          - unique
+          - not_null
+
+      - name: cidade
+        description: "Representa as cidades destacadas."
+        tests:
+          - not_null
+
+      - name: estado
+        description: "Representa os estados destacados."
+        tests:
+          - not_null
+
+      - name: territorio
+        description: "Coluna com regiões destacdas."
+        tests:
+          - not_null
+      
+      - name: pais
+        description: "Coluna dos países relacionados."
+        tests:
+          - not_null
