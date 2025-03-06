@@ -9,56 +9,81 @@ sources:
       - name: SALESORDERHEADER
         description: "Pedido de venda."
         columns:
-          - name: SALESORDERID
+          - name: salesorderid
             description: "Número do pedido."
             tests:
               - unique
               - not_null
-      - name: orderdate
-        description: "Data do pedido"
-        tests:
-          - unique
-          - not_null
-      - name: subtotal
-        description: "Coluna subtotal"
-        tests:
-          - unique
-          - not_null
-      - name: taxamt
-        description: "Coluna das taxas"
-        tests:
-          - unique
-          - not_null
-      - name: freight
-        description: "Coluna dos fretes"
-        tests:
-          - unique
-          - not_null
-      - name: totaldue
-        description: "Coluna dos valores total"
-        tests:
-          - unique
-          - not_null
-      - name: customerid
-        description: "ID do cliente"
-        tests:
-          - unique
-          - not_null
-      - name: salespersonid
-        description: "Coluna vendedor"
-        tests:
-          - unique
-          - not_null
-      - name: creditcardid
-        description: "Coluna id cartao"
-        tests:
-          - unique
-          - not_null
-      - name: SHIPTOADDRESSID
-        description: "Coluna endereco"
-        tests:
-          - unique
-          - not_null
+          - name: status
+            description: "Status do pedido."
+            tests:
+              - unique
+              - not_null
+          - name: purchaseordernumber
+            description: "Numero do pedido"
+            tests:
+              - unique
+              - not_null
+          - name: orderdate
+            description: "Data do pedido"
+            tests:
+              - unique
+              - not_null
+          - name: subtotal
+            description: "Coluna subtotal"
+            tests:
+              - unique
+              - not_null
+          - name: taxamt
+            description: "Coluna das taxas"
+            tests:
+              - unique
+              - not_null
+          - name: freight
+            description: "Coluna dos fretes"
+            tests:
+              - unique
+              - not_null
+          - name: totaldue
+            description: "Coluna dos valores total"
+            tests:
+              - unique
+              - not_null
+          - name: customerid
+            description: "ID do cliente"
+            tests:
+              - unique
+              - not_null
+          - name: salespersonid
+            description: "Coluna vendedor"
+            tests:
+              - unique
+              - not_null
+          - name: territoryid
+            description: "Coluna com territorio id."
+            tests:
+              - unique
+              - not_null
+          - name: billtoaddress
+            description: "Coluna com id endereco."
+            tests:
+              - unique
+              - not_null
+          - name: shiptoaddressid
+            description: "Coluna troca de endereco"
+            tests:
+              - unique
+              - not_null
+          - name: creditcardid
+            description: "Coluna id cartao"
+            tests:
+              - unique
+              - not_null
+          - name: currencyrateid
+            description: "Coluna id cartao"
+            tests:
+              - unique
+              - not_null
       - name: SALESORDERDETAIL
         description: "Detalhes de cada pedido"
         columns: 
@@ -125,8 +150,18 @@ sources:
             tests:
               - unique
               - not_null
-          - name: productsubcategoryid    
-            description: "Id de subcategoria do produto" 
+          - name: productnumber   
+            description: "Coluna de numero do produto." 
+            tests:
+              - unique
+              - not_null
+          - name: listprice
+            description: "Coluna de preco sugerido." 
+            tests:
+              - unique
+              - not_null
+          - name: productcategoryid
+            description: "Coluna de categoria." 
             tests:
               - unique
               - not_null
@@ -161,11 +196,11 @@ sources:
             tests:
               - unique
               - not_null
-      - name: territoryid
-        description: "Id do território"
-        tests:
-          - unique
-          - not_null
+          - name: territoryid
+            description: "Id do território"
+            tests:
+              - unique
+              - not_null
       - name: ADDRESS
         description: "Tebela relacionada aos enderecos"
         columns:
@@ -202,11 +237,21 @@ sources:
             tests:
               - unique
               - not_null      
-      - name: countryregioncode
-        description: "Coluna de pais que pertece o estado."
-        tests:
-          - unique
-          - not_null
+          - name: countryregioncode
+            description: "Coluna de pais que pertece o estado."
+            tests:
+              - unique
+              - not_null
+          - name: territoryid
+            description: "Coluna de id do terrirtorio."
+            tests:
+              - unique
+              - not_null
+          - name: stateprovincecode 
+            description: "Coluna de codigo do estado."
+            tests:
+              - unique
+              - not_null          
       - name: COUNTRYREGION
         description: "Tabela de paises e siglas"
         columns:
@@ -233,7 +278,7 @@ sources:
             tests:
               - unique
               - not_null
-              - name: reasontype
+          - name: reasontype
             description: "Coluna de outro motivo da venda."
             tests:
               - unique
@@ -251,12 +296,12 @@ sources:
             tests:
               - unique
               - not_null
-              - name: expmonth
+          - name: expmonth
             description: "Coluna com expmes."
             tests:
               - unique
               - not_null
-              - name: expyear
+          - name: expyear
             description: "Coluna com expano."
             tests:
               - unique
@@ -274,3 +319,269 @@ sources:
             tests:
               - unique
               - not_null
+      - name: PRODUCTSUBCATEGORY
+        description: "Tabela de relacao a subcategoria dos produtos "
+        columns:
+          - name: productsubcategoryid 
+            description: "Coluna com id de subcategoria do produto"
+            tests:
+              - unique
+              - not_null
+          - name: productcategoryid
+            description: "Coluna com id de categoria do produto"
+            tests:
+              - unique
+              - not_null
+          - name: name
+            description: "Coluna com nomes dos produtos"
+            tests:
+              - unique
+              - not_null
+      - name: PERSON
+        description: "Tabela de relacao dos nomes."
+        columns:
+          - name: businessentityid
+            description: "Coluna com id"
+            tests:
+              - unique
+              - not_null
+          - name: firstname
+            description: "Coluna com primeiro nome"
+            tests:
+              - unique
+              - not_null
+          - name: middletname
+            description: "Coluna com nome do meio"
+            tests:
+              - unique
+              - not_null
+          - name: lastname
+            description: "Coluna com sobrenome"
+            tests:
+              - unique
+              - not_null
+      - name: SPECIALOFFER
+        description: "Tabela de relacao as ofertas."
+        columns:
+          - name: specialofferid
+            description: "Coluna com id de desconto"
+            tests:
+              - unique
+              - not_null
+          - name: discountpct
+            description: "Coluna com valor de desconto"
+            tests:
+              - unique
+              - not_null
+          - name: description
+            description: "Coluna com descricao do desconto"
+            tests:
+              - unique
+              - not_null
+          - name: type
+            description: "Coluna com motivo do desconto"
+            tests:
+              - unique
+              - not_null
+          - name: category
+            description: "Coluna com a categoria de desconto"
+            tests:
+              - unique
+              - not_null
+          - name: minqty
+            description: "Coluna quantidade minima para desconto"
+            tests:
+              - unique
+              - not_null
+          - name: maxqty
+            description: "Coluna com quantidade maxima para desconto"
+            tests:
+              - unique
+              - not_null
+      - name: SPECIALOFFERPRODUCT 
+        description: "Tabela de relacao com ofertas."
+        columns:
+          - name: specialofferid
+            description: "Coluna com id de desconto"
+            tests:
+              - unique
+              - not_null
+          - name: productid
+            description: "Coluna com id do produto"
+            tests:
+              - unique
+              - not_null
+      - name:  PRODUCTCATEGORY
+        description: "Tabela de relacao id e categoria."
+        columns:
+          - name: productcategoryid
+            description: "Coluna com id"
+            tests:
+              - unique
+              - not_null
+          - name: name
+            description: "Coluna com id de desconto"
+            tests:
+              - unique
+              - not_null
+      - name:  PERSONCREDITCARD
+        description: "Tabela de relacao id e cartao."
+        columns:
+          - name: businessentityid 
+            description: "Coluna com id"
+            tests:
+              - unique
+              - not_null
+          - name: creditcardid
+            description: "Coluna com id de cartao"
+            tests:
+              - unique
+              - not_null
+      - name:  PURCHASEORDERDETAIL
+        description: "Tabela de relacao a id e venda."
+        columns:
+          - name: productid
+            description: "Coluna com id"
+            tests:
+              - unique
+              - not_null
+          - name: unitprice
+            description: "Coluna com preco."
+            tests:
+              - unique
+              - not_null
+      - name: PRODUCTLISTPRICEHISTORY
+        description: "Tabela de relacao a ids."
+        columns:
+          - name: productid
+            description: "Coluna com ids"
+            tests:
+              - unique
+              - not_null
+          - name: listprice
+            description: "Coluna com precos."
+            tests:
+              - unique
+              - not_null
+      - name: BUSINESSENTITYADDRESS
+        description: "Tabela de relacao a ids."
+        columns:
+          - name: businessEntityid
+            description: "Coluna com ids"
+            tests:
+              - unique
+              - not_null
+          - name: addressid
+            description: "Coluna com relacao endereco."
+            tests:
+              - unique
+              - not_null
+      - name: SALESTERRITORY
+        description: "Tabela de relacao a ids territorio."
+        columns:
+          - name: territoryid
+            description: "Coluna com ids."
+            tests:
+              - unique
+              - not_null
+          - name: name
+            description: "Coluna com relacao nomes."
+            tests:
+              - unique
+              - not_null
+          - name: countryregioncode
+            description: "Coluna com relacao regiao."
+            tests:
+              - unique
+              - not_null
+          - name: salesytd
+            description: "Coluna com valoores."
+            tests:
+              - unique
+              - not_null
+      - name: BUSINESSENTITY
+        description: "Tabela de relacao a id business."
+        columns:
+          - name: businessentityid 
+            description: "Coluna com ids territorio"
+            tests:
+              - unique
+              - not_null
+      - name: STORE
+        description: "Tabela de relacao a id business."
+        columns:
+          - name: businessentityid 
+            description: "Coluna com ids territorio"
+            tests:
+              - unique
+              - not_null
+          - name: name
+            description: "Coluna com nomes."
+            tests:
+              - unique
+              - not_null
+          - name: salespersonid
+            description: "Coluna com id pessoa."
+            tests:
+              - unique
+              - not_null
+      - name: CURRENCY
+        description: "Tabela de relacao a moeda."
+        columns:
+          - name: currencycode
+            description: "Coluna com codigo da moeda."
+            tests:
+              - unique
+              - not_null
+          - name: name
+            description: "Coluna com nomes das moedas"
+            tests:
+              - unique
+              - not_null
+      - name: CURRENCYRATE
+        description: "Tabela de dados finais da moeda."
+        columns:
+          - name: currencyrateid
+            description: "Coluna com id da moeda."
+            tests:
+              - unique
+              - not_null
+          - name: currencyratedate
+            description: "Coluna com datas."
+            tests:
+              - unique
+              - not_null
+          - name: fromcurrencycode
+            description: "Coluna codigo origem"
+            tests:
+              - unique
+              - not_null
+          - name: tocurrencycode
+            description: "Coluna codigo da moeda."
+            tests:
+              - unique
+              - not_null
+          - name: averagerate
+            description: "Coluna com valores da moeda."
+            tests:
+              - unique
+              - not_null
+          - name: endofdayrate
+            description: "Coluna com valores finais."
+            tests:
+              - unique
+              - not_null
+      - name: EMPLOYEE
+        description: "Tabela de dados funcionarios."
+        columns:
+          - name: businessentityid 
+            description: "Coluna com id funcionario."
+            tests:
+              - unique
+              - not_null
+          - name: jobtitle
+            description: "Coluna com cargo."
+            tests:
+              - unique
+              - not_null
+      

@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: dim_salesperson
+    description: "Dimensão relacionada aos dados dos vendedores e território."
+    columns:
+      - name: pk_vendedor
+        description: "Representa a chave primária para os vendedores."
+        tests:
+          - unique
+          - not_null
+
+      - name: nome_vendedor
+        description: "Representa a chave para relacionar os nomes."
+        tests:
+          - unique
+          - not_null
+
+      - name: territorio
+        description: "Representa a regiao de cada vendedor."
+        tests:
+          - not_null
+
+      - name: fk_pais
+        description: "Representa o nome de cada país."
+        tests:
+          - not_null
+       

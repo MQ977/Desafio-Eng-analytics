@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: dim_salesreason
+    description: "Dimensão relacionada aos motivos de venda."
+    columns:
+      - name: fk_pedido
+        description: "Representa a chave estrangeira para relacionar pedidos."
+        tests:
+          - unique
+          - not_null
+
+      - name: motivo_da_venda
+        description: "Representa o motivo pelo qual o produto foi vendido."
+        tests:
+          - unique
+          - not_null
+
+      - name: motivo_complementar
+        description: "Representa uma categoria para o motivo de compra."
+        tests:
+          - not_null
+       
